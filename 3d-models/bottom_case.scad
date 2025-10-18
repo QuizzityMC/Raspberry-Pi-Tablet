@@ -74,7 +74,7 @@ module bottom_case() {
             rounded_cube([
                 case_length - 2 * wall_thickness, 
                 case_width - 2 * wall_thickness, 
-                case_height
+                case_height - base_thickness + 1
             ], corner_radius - wall_thickness);
         
         // Cutout for ports (USB, HDMI, Ethernet, etc.)

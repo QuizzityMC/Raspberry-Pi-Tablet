@@ -6,7 +6,7 @@ bracket_length = 50;
 bracket_width = 15;
 bracket_thickness = 3;
 hinge_hole_diameter = 3.5; // For M3 screw
-mounting_hole_diameter = 2.5; // For M2.5 screw
+mounting_hole_diameter = 2.2; // For M2.5 screw
 corner_radius = 2;
 
 // Hole positions

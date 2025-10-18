@@ -71,7 +71,7 @@ module top_case() {
             rounded_cube([
                 display_length, 
                 display_width, 
-                case_depth
+                display_thickness + 1
             ], corner_radius - wall_thickness);
         
         // Cable access hole (for display cable)

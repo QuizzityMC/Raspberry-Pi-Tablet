@@ -18,6 +18,9 @@ grip_dot_diameter = 3;
 grip_dot_depth = 1;
 grip_spacing = 10;
 
+// Cutout parameters
+support_cutout_ratio = 0.6; // Ratio of support height for triangular cutout
+
 corner_radius = 3;
 
 module rounded_cube(size, radius) {
@@ -66,7 +69,7 @@ module tablet_stand() {
                 // Triangular cutout for material savings
                 translate([stand_thickness/2, -1, stand_height/2])
                     rotate([-90, 0, 0])
-                        cylinder(h = stand_thickness + 2, d = stand_height * 0.6, $fn = 3);
+                        cylinder(h = stand_thickness + 2, d = stand_height * support_cutout_ratio, $fn = 3);
             }
             
             // Lip to hold tablet
