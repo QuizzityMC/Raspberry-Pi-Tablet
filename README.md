@@ -27,6 +27,8 @@ The case design includes adjustable mounting brackets for different viewing angl
 5. 3D print the components
 6. Assemble with required hardware (M2.5 and M3 screws)
 
+👉 **New to this project?** Start with the [Quick Start Guide](QUICKSTART.md) for a 5-minute overview!
+
 ## Features
 
 ✅ Parametric OpenSCAD designs (easily customizable)  
@@ -59,6 +61,11 @@ Detailed documentation is available in the [3d-models README](3d-models/README.m
 - Customization options
 - Troubleshooting tips
 
+**Additional Guides:**
+- 📋 [Quick Start Guide](QUICKSTART.md) - Get started in 5 minutes
+- 🔨 [Assembly Guide](ASSEMBLY.md) - Step-by-step assembly
+- 🛒 [Bill of Materials](BOM.md) - Complete shopping list
+
 ## Contributing
 
 Contributions are welcome! Feel free to:
@@ -68,6 +75,8 @@ Contributions are welcome! Feel free to:
 - Share your builds
 
 ## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 This project is provided for personal and educational use. Feel free to modify and share.
 
