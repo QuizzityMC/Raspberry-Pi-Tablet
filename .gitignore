@@ -1,5 +1,6 @@
 # 3D Printing artifacts
 *.stl
+!3d-models/assembled_view.stl
 *.gcode
 *.3mf
 

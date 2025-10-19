@@ -13,6 +13,11 @@ These are parametric 3D models that can be customized and exported to STL format
 2. **top_case.scad** - Top case that holds the touchscreen display
 3. **mounting_brackets.scad** - Brackets to connect the top and bottom cases (creates 4 pieces)
 4. **stand.scad** - Optional stand for desktop use
+5. **assembled_view.scad** - Complete assembled view showing all parts together (for visualization)
+
+### Pre-rendered STL Files
+For convenience, a complete assembled view STL file is included:
+- **assembled_view.stl** - All parts assembled together at 110° angle (visualization/reference only)
 
 ### Features
 

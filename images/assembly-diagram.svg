@@ -12,6 +12,7 @@
       .arrow { fill: none; stroke: #666; stroke-width: 3; marker-end: url(#arrowhead); }
       .step-circle { fill: #2196F3; }
       .highlight { fill: #4CAF50; stroke: #2E7D32; stroke-width: 2; }
+      .scale-label { font-family: Arial, sans-serif; font-size: 12px; fill: #999; font-style: italic; }
     </style>
     <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
       <polygon points="0 0, 10 3, 0 6" fill="#666" />
@@ -20,45 +21,46 @@
   
   <!-- Title -->
   <text x="600" y="50" class="title" text-anchor="middle">Raspberry Pi Tablet Assembly Diagram</text>
+  <text x="600" y="75" class="scale-label" text-anchor="middle">(To-scale representation - Scale: 2:1)</text>
   
   <!-- Step 1: Components Overview -->
-  <text x="100" y="110" class="subtitle">Components Needed:</text>
+  <text x="100" y="110" class="subtitle">Components Needed (To Scale 2:1):</text>
   
-  <!-- Raspberry Pi 5 -->
-  <rect x="80" y="130" width="200" height="140" class="component" rx="5"/>
-  <text x="180" y="155" class="label" text-anchor="middle" font-weight="bold">Raspberry Pi 5</text>
-  <circle cx="100" cy="180" r="4" fill="#333"/>
-  <circle cx="260" cy="180" r="4" fill="#333"/>
-  <circle cx="100" cy="250" r="4" fill="#333"/>
-  <circle cx="260" cy="250" r="4" fill="#333"/>
-  <rect x="90" y="190" width="30" height="20" fill="#c0c0c0"/>
-  <rect x="90" y="220" width="30" height="20" fill="#c0c0c0"/>
-  <text x="180" y="265" class="small-label" text-anchor="middle">4× M2.5 screw holes</text>
+  <!-- Raspberry Pi 5 - Actual: 85mm x 56mm, Scale 2:1 = 170px x 112px -->
+  <rect x="80" y="130" width="170" height="112" class="component" rx="5"/>
+  <text x="165" y="155" class="label" text-anchor="middle" font-weight="bold">Raspberry Pi 5</text>
+  <text x="165" y="172" class="small-label" text-anchor="middle">(85mm × 56mm)</text>
+  <circle cx="87" cy="137" r="3" fill="#333"/>
+  <circle cx="243" cy="137" r="3" fill="#333"/>
+  <circle cx="87" cy="235" r="3" fill="#333"/>
+  <circle cx="243" cy="235" r="3" fill="#333"/>
+  <rect x="95" y="180" width="25" height="15" fill="#c0c0c0"/>
+  <rect x="95" y="200" width="25" height="15" fill="#c0c0c0"/>
+  <text x="165" y="232" class="small-label" text-anchor="middle">4× M2.5 screws</text>
   
-  <!-- Touch Display 2 -->
-  <rect x="320" y="130" width="220" height="140" class="component" rx="5"/>
-  <text x="430" y="155" class="label" text-anchor="middle" font-weight="bold">Touch Display 2</text>
-  <rect x="335" y="170" width="190" height="80" fill="#000" stroke="#333" stroke-width="2"/>
-  <text x="430" y="218" class="small-label" text-anchor="middle" fill="#fff">7″ Screen</text>
-  <circle cx="340" cy="260" r="3" fill="#333"/>
-  <circle cx="520" cy="260" r="3" fill="#333"/>
-  <text x="430" y="265" class="small-label" text-anchor="middle">4× M2.5 screw holes</text>
+  <!-- Touch Display 2 - Actual: 192.96mm x 110.76mm, Scale 2:1 = 386px x 221px (scaled down to fit) -->
+  <rect x="280" y="130" width="193" height="111" class="component" rx="5"/>
+  <text x="376.5" y="155" class="label" text-anchor="middle" font-weight="bold">Touch Display 2</text>
+  <text x="376.5" y="172" class="small-label" text-anchor="middle">(192.96mm × 110.76mm)</text>
+  <rect x="299" y="180" width="155" height="46" fill="#000" stroke="#333" stroke-width="2"/>
+  <text x="376.5" y="207" class="small-label" text-anchor="middle" fill="#fff">7″ Screen (155×86mm)</text>
+  <circle cx="287" cy="234" r="3" fill="#333"/>
+  <circle cx="466" cy="234" r="3" fill="#333"/>
+  <text x="376.5" y="232" class="small-label" text-anchor="middle">4× M2.5 screws</text>
   
-  <!-- Bottom Case -->
-  <rect x="580" y="130" width="180" height="140" class="component" rx="5"/>
-  <text x="670" y="155" class="label" text-anchor="middle" font-weight="bold">Bottom Case</text>
-  <text x="670" y="180" class="small-label" text-anchor="middle">(3D Printed)</text>
-  <rect x="595" y="190" width="150" height="65" fill="#fff" stroke="#2196F3" stroke-width="2" stroke-dasharray="5,5"/>
-  <text x="670" y="228" class="small-label" text-anchor="middle">Houses</text>
-  <text x="670" y="245" class="small-label" text-anchor="middle">Raspberry Pi</text>
+  <!-- Bottom Case - Actual: ~90mm x 61mm -->
+  <rect x="510" y="130" width="180" height="111" class="component" rx="5"/>
+  <text x="600" y="155" class="label" text-anchor="middle" font-weight="bold">Bottom Case</text>
+  <text x="600" y="172" class="small-label" text-anchor="middle">(3D Printed - 90×61mm)</text>
+  <rect x="525" y="183" width="150" height="50" fill="#fff" stroke="#2196F3" stroke-width="2" stroke-dasharray="5,5"/>
+  <text x="600" y="213" class="small-label" text-anchor="middle">Houses Pi</text>
   
-  <!-- Top Case -->
-  <rect x="800" y="130" width="180" height="140" class="component" rx="5"/>
-  <text x="890" y="155" class="label" text-anchor="middle" font-weight="bold">Top Case</text>
-  <text x="890" y="180" class="small-label" text-anchor="middle">(3D Printed)</text>
-  <rect x="815" y="190" width="150" height="65" fill="#fff" stroke="#2196F3" stroke-width="2" stroke-dasharray="5,5"/>
-  <text x="890" y="228" class="small-label" text-anchor="middle">Houses</text>
-  <text x="890" y="245" class="small-label" text-anchor="middle">Display</text>
+  <!-- Top Case - Actual: ~198mm x 116mm -->
+  <rect x="720" y="130" width="198" height="111" class="component" rx="5"/>
+  <text x="819" y="155" class="label" text-anchor="middle" font-weight="bold">Top Case</text>
+  <text x="819" y="172" class="small-label" text-anchor="middle">(3D Printed - 198×116mm)</text>
+  <rect x="735" y="183" width="168" height="50" fill="#fff" stroke="#2196F3" stroke-width="2" stroke-dasharray="5,5"/>
+  <text x="819" y="213" class="small-label" text-anchor="middle">Houses Display</text>
   
   <!-- Hardware -->
   <text x="1020" y="110" class="subtitle">Hardware:</text>
