@@ -2,6 +2,12 @@
 
 Step-by-step instructions for assembling your Raspberry Pi Tablet.
 
+## Assembly Diagram
+
+![Assembly Diagram](images/assembly-diagram.svg)
+
+The diagram above shows the complete assembly process from components to finished tablet. Follow the numbered steps below for detailed instructions.
+
 ## Before You Begin
 
 ### Checklist
