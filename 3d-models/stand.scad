@@ -18,9 +18,6 @@ grip_dot_diameter = 3;
 grip_dot_depth = 1;
 grip_spacing = 10;
 
-// Cutout parameters
-support_cutout_ratio = 0.6; // Ratio of support height for triangular cutout
-
 corner_radius = 3;
 
 module rounded_cube(size, radius) {
