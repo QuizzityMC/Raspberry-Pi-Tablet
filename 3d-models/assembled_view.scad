@@ -36,7 +36,7 @@ bracket_thickness = 3;
 
 // Calculate hinge pivot point
 // The pivot is at the edge where the cases meet
-pivot_x = top_case_length / 2;
+pivot_x = bottom_case_length / 2;
 pivot_y = bracket_offset_from_edge;
 pivot_z = bottom_case_height;
 
@@ -62,14 +62,17 @@ module assembled_tablet() {
     translate([pivot_x, 0, pivot_z])
     rotate([-hinge_angle, 0, 0])
     translate([-pivot_x, 0, 0]) {
+        // Calculate offset for centering top case over bottom case
+        top_case_x_offset = (bottom_case_length - top_case_length) / 2;
+        
         // Top case
         color("lightblue", 0.8)
-        translate([(bottom_case_length - top_case_length)/2, 0, 0])
+        translate([top_case_x_offset, 0, 0])
         rotate([180, 0, 0])
         translate([0, -top_case_width, -top_case_depth])
         top_case();
         
-        // Top brackets
+        // Top brackets (positioned relative to bottom case for hinge alignment)
         // Left bracket
         color("green", 0.7)
         translate([bracket_offset_from_edge, bracket_width/2, 0])
