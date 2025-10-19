@@ -46,7 +46,8 @@ These are parametric 3D models that can be customized and exported to STL format
 - Desktop stand for angled viewing
 - Anti-slip grip dots on base
 - Supports tablet at approximately 20° angle
-- Reinforced construction
+- Reinforced construction with integrated support wedge
+- Rounded lip edge for comfortable handling
 
 ## How to Use
 
