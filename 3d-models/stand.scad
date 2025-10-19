@@ -18,9 +18,6 @@ grip_dot_diameter = 3;
 grip_dot_depth = 1;
 grip_spacing = 10;
 
-// Cutout parameters
-support_cutout_ratio = 0.6; // Ratio of support height for triangular cutout
-
 corner_radius = 3;
 
 module rounded_cube(size, radius) {
@@ -38,62 +35,74 @@ module grip_dots(length, width, dot_d, dot_depth, spacing) {
     for (x = [spacing : spacing : length - spacing]) {
         for (y = [spacing : spacing : width - spacing]) {
             translate([x, y, stand_base_thickness - dot_depth])
-                cylinder(h = dot_depth + 0.5, d = dot_d, $fn = 20);
+                cylinder(h = dot_depth + 1, d = dot_d, $fn = 20);
         }
     }
 }
 
 module tablet_stand() {
-    // Base
-    difference() {
-        rounded_cube([stand_base_length, stand_base_width, stand_base_thickness], corner_radius);
+    union() {
+        // Base
+        difference() {
+            rounded_cube([stand_base_length, stand_base_width, stand_base_thickness], corner_radius);
+            
+            // Add grip dots to bottom
+            translate([corner_radius + 5, corner_radius + 5, 0])
+                grip_dots(
+                    stand_base_length - 2 * corner_radius - 10,
+                    stand_base_width - 2 * corner_radius - 10,
+                    grip_dot_diameter,
+                    grip_dot_depth,
+                    grip_spacing
+                );
+        }
         
-        // Add grip dots to bottom
-        translate([corner_radius + 5, corner_radius + 5, 0])
-            grip_dots(
-                stand_base_length - 2 * corner_radius - 10,
-                stand_base_width - 2 * corner_radius - 10,
-                grip_dot_diameter,
-                grip_dot_depth,
-                grip_spacing
-            );
-    }
-    
-    // Support arm (angled)
-    translate([stand_base_length - stand_thickness, stand_base_width/2 - stand_thickness/2, stand_base_thickness]) {
-        rotate([stand_angle, 0, 0]) {
-            difference() {
-                // Main support
-                cube([stand_thickness, stand_thickness, stand_height]);
+        // Support arm assembly (angled)  
+        translate([stand_base_length - stand_thickness, stand_base_width/2 - stand_thickness/2, stand_base_thickness]) {
+            // Main support structure with integrated base connection
+            hull() {
+                // Base connection - extends slightly into base for good union
+                translate([0, 0, -0.5])
+                    cube([stand_thickness, stand_thickness, 1]);
                 
-                // Triangular cutout for material savings
-                translate([stand_thickness/2, -1, stand_height/2])
-                    rotate([-90, 0, 0])
-                        cylinder(h = stand_thickness + 2, d = stand_height * support_cutout_ratio, $fn = 3);
+                // Base of rotated support
+                rotate([stand_angle, 0, 0])
+                    cube([stand_thickness, stand_thickness, 1]);
             }
             
-            // Lip to hold tablet
-            translate([0, 0, stand_height]) {
-                cube([stand_thickness, lip_depth, lip_height]);
-                
-                // Rounded top edge
-                translate([stand_thickness/2, lip_depth, lip_height])
-                    rotate([0, 90, 0])
-                        cylinder(h = stand_thickness, d = 4, center = true, $fn = 30);
+            // Main support structure
+            rotate([stand_angle, 0, 0]) {
+                union() {
+                    // Main vertical support
+                    cube([stand_thickness, stand_thickness, stand_height]);
+                    
+                    // Lip to hold tablet with rounded top
+                    hull() {
+                        translate([0, 0, stand_height])
+                            cube([stand_thickness, lip_depth, lip_height]);
+                        
+                        // Rounded top edge for comfort
+                        translate([0, lip_depth, stand_height + lip_height])
+                            rotate([0, 90, 0])
+                                cylinder(h = stand_thickness, r = 2, $fn = 30);
+                    }
+                    
+                    // Reinforcement wedge - integrated properly
+                    hull() {
+                        // Bottom front
+                        translate([0, 0, 0])
+                            cube([stand_thickness, stand_thickness, 0.1]);
+                        
+                        // Mid-height front
+                        translate([0, 0, 20])
+                            cube([stand_thickness, stand_thickness, 0.1]);
+                        
+                        // Back bottom
+                        translate([-15, 0, 0])
+                            cube([stand_thickness, stand_thickness, 0.1]);
+                    }
+                }
             }
-        }
-    }
-    
-    // Reinforcement triangle
-    translate([stand_base_length - stand_thickness, stand_base_width/2 - stand_thickness/2, stand_base_thickness]) {
-        rotate([stand_angle, 0, 0]) {
-            // Front reinforcement
-            linear_extrude(height = stand_thickness)
-                polygon([
-                    [0, 0],
-                    [0, 20],
-                    [-15, 0]
-                ]);
         }
     }
 }
